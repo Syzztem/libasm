@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,6 +22,7 @@
 #define S2 "test"
 #define S3 "another string which is longer but not that long actually, just to test stuff"
 #define EMPTY_STR ""
+
 typedef struct	s_list
 {
 	void *data;
@@ -121,6 +125,16 @@ int main(int ac, char **av)
 	printf("bad fd writes: \"");
 	printf("\", returns %d\n", ft_write(5, S2, ft_strlen(S2)));
 	printf("errno:%d\n", errno);
+	
+	pheader("ft_read");
+	int fd = open("main.c", O_RDONLY);
+	char buff[51];
+	buff[50] = 0;
+	int ret = ft_read(fd, buff, 50);
+	printf("basic read(50 bytes) : \"%s\" \n\n\n returns: %d\n", buff, ret);
+	ret = ft_read(42, buff, 50);
+	printf("bad fd : returns %d, errno = %d\n", ret, errno);
+
 
 #ifdef BONUS
 

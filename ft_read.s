@@ -1,8 +1,8 @@
-global	ft_write
+global	ft_read
 extern	__errno_location
 
 ft_read:
-	mov		rax, 3 ;read instrucion
+	mov		rax, 0 ;read instrucion
 	syscall
 	cmp		rax, 0
 	jl		err
