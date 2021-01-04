@@ -1,6 +1,6 @@
-global	_ft_atoi
+global	ft_atoi
 
-_ft_atoi:
+ft_atoi:
 	xor		rax, rax	;return
 	xor		r12, r12	;index
 	mov		r13, 1		;sign

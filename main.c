@@ -110,6 +110,7 @@ int main(int ac, char **av)
 	printf("basic string :\"%s\" -> \"%s\"\n", S1, ft_strdup(S1));
 	printf("basic string :\"%s\" -> \"%s\"\n", S2, ft_strdup(S2));
 	printf("basic string :\"%s\" -> \"%s\"\n", S3, ft_strdup(S3));
+	printf("empty string : -> \"%s\"\n", ft_strdup(""));
 
 	pheader("ft_write");
 	printf("basic input : \"%s\" writes: \"", S1);

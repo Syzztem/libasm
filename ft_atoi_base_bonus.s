@@ -1,6 +1,6 @@
-global _ft_atoi_base
+global ft_atoi_base
 
-_ft_atoi_base:
+ft_atoi_base:
 	xor			r12, r12		;base length
 	xor			r13, r13		;char collecting
 	mov			r14, 1			;sign

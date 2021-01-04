@@ -24,7 +24,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 ASM = nasm
 
-ASFLAGS = -fmacho64
+ASFLAGS = -felf64
 
 CC = clang
 

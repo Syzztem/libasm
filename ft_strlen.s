@@ -1,6 +1,6 @@
-global _ft_strlen
+global		ft_strlen
 
-_ft_strlen:
+ft_strlen:
 	xor		rax, rax
 loop:
 	mov		r12b, [rdi + rax*1]

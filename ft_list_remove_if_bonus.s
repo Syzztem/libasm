@@ -1,7 +1,7 @@
-global	_ft_list_remove_if
-extern	_free
+global	ft_list_remove_if
+extern	free
 
-_ft_list_remove_if:
+ft_list_remove_if:
 	mov			rdi, [rdi]		;set head to rdi
 	cmp			rdi, 0			;is it null?
 	je			end				;if so, yeet
@@ -21,7 +21,7 @@ loop:
 	call		r13				;free it
 	pop			rdi				;rdi = next
 	push qword	[rdi + 8]		;this is what we call a pro gamer move, I 
-	call		_free			;allign stack and save pointer at the same time
+	call		free			;allign stack and save pointer at the same time
 	pop	 qword	[r12 + 8]		;and I smoothly pop it on the previous node
 	jmp			loop
 lend:

@@ -1,6 +1,6 @@
-global _ft_list_sort
+global ft_list_sort
 
-_ft_list_sort:
+ft_list_sort:
 	push		rdi				;stack allign
 	mov			rdi, [rdi]
 	cmp			rdi, 0

@@ -1,6 +1,6 @@
-global _ft_swap
+global ft_swap
 
-_ft_swap:
+ft_swap:
 	push	qword	[rsi]
 	push	qword	[rdi]
 	pop		qword	[rsi]

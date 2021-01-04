@@ -1,7 +1,7 @@
-global _ft_write
+global ft_write
 
-_ft_write:
-	mov rax, 0x02000004 ;4th instruct on eax
+ft_write:
+	mov rax, 1 ;write instrucion
 	syscall
 	jb err
 	ret

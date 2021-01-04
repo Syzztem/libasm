@@ -1,6 +1,6 @@
-global _ft_strcpy
+global ft_strcpy
 
-_ft_strcpy:
+ft_strcpy:
 	xor		r12, r12
 loop:
 	mov	byte	r13b, [rsi + r12]

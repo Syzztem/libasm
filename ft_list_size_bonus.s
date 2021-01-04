@@ -1,6 +1,6 @@
-global _ft_list_size
+global ft_list_size
 
-_ft_list_size:
+ft_list_size:
 	xor		rax, rax
 count:
 	cmp		rdi, 0

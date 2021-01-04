@@ -1,12 +1,12 @@
-global	_ft_list_push_front
-extern	_malloc
+global	ft_list_push_front
+extern	malloc
 
-_ft_list_push_front:
+ft_list_push_front:
 	push	rdi
 	push	rsi
 	push	rsi				;allign stack to 16 bytes duh
 	mov		rdi, 16			;sizeof the struct
-	call	_malloc
+	call	malloc
 	pop		rsi
 	pop		rsi
 	pop		rdi

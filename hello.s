@@ -1,12 +1,15 @@
-global    _main
-extern    _puts
+global	start
 
-          section   .text
-_main:    push      rbx                     ; Call stack must be aligned
-          lea       rdi, [rel message]
-          call      _puts                   ; puts(message)
-          pop       rbx                     ; Fix up stack before returning
-          ret
+		section	.text
+start:	mov		rax, 1
+		mov		rdi, 1
+		mov		rsi, message
+		mov		rdx, 13
+		syscall
+		mov		rax, 60
+		xor		rdi, rdi
+		syscall
 
-          section   .data
-message:  db        "Hola, mundo", 0
+
+		section .data
+message:	db		"Hello world!", 10

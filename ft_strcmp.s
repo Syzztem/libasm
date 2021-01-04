@@ -1,6 +1,6 @@
-global	_ft_strcmp
+global	ft_strcmp
 
-_ft_strcmp:
+ft_strcmp:
 	xor			rax, rax
 	xor			r12, r12
 loop:
