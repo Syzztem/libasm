@@ -1,11 +1,17 @@
-global ft_write
+global	ft_write
+extern	__errno_location
 
 ft_write:
-	mov rax, 1 ;write instrucion
+	mov		rax, 1 ;write instrucion
 	syscall
-	jb err
+	cmp		rax, 0
+	jl		err
 	ret
-
 err:
-	mov rax, -1
+	push	rax
+	call	__errno_location
+	pop		rsi
+	neg		rsi
+	mov		[rax], rsi
+	mov		rax, -1
 	ret

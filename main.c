@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -119,6 +120,7 @@ int main(int ac, char **av)
 	printf("\", returns %d\n", ft_write(1, S2, ft_strlen(S2)));
 	printf("bad fd writes: \"");
 	printf("\", returns %d\n", ft_write(5, S2, ft_strlen(S2)));
+	printf("errno:%d\n", errno);
 
 #ifdef BONUS
 
