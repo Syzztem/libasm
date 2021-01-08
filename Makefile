@@ -20,25 +20,21 @@ OBJB = ${OBJS} ${BONUS:.s=.o}
 
 NAME = libasm.a
 
-CFLAGS = -Wall -Wextra -Werror -g
-
 ASM = nasm
 
 ASFLAGS = -felf64
-
-CC = clang
 
 RM = rm -f
 
 all:		${NAME}
 
 bonus:		${OBJB}
-				ar rcs ${NAME} ${OBJB}
+				ar -rcs ${NAME} ${OBJB}
 .s.o:
 			${ASM} ${ASFLAGS} $< -o ${<:.s=.o}
 
 ${NAME}:	${OBJS}
-				ar rcs ${NAME} ${OBJS}
+				ar -rcs ${NAME} ${OBJS}
 
 clean:
 				${RM} ${OBJB}
