@@ -6,7 +6,7 @@
 /*   By: lothieve <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 13:33:31 by lothieve          #+#    #+#             */
-/*   Updated: 2020/03/05 17:02:35 by lothieve         ###   ########.fr       */
+/*   Updated: 2021/02/20 13:30:18 by lothieve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,42 @@ int	ft_list_size(t_list *head);
 void ft_list_sort(t_list **begin_list, int(cmp)(void *,void *));
 void *ft_list_remove_if(t_list **,void *,int(*cmp)(),void(*free_fct)(void*));
 
+void paddress(void *addr)
+{
+	printf("%p\n", addr);
+}
+
+t_list *create_list()
+{
+	t_list	*head;
+	t_list	*current;
+	char	*item;
+
+	head = malloc(sizeof(t_list));
+	current = head;
+	current->data = strdup("head");
+	item = "`";
+	for (int i = 0; i < 10; i++)
+	{
+		current->next = malloc(sizeof(t_list));
+		current = current->next;
+		item = strdup(item);
+		(*item)++;
+		current->data = item;
+		printf("%s, %p\n", current->data, current);
+	}
+	current->next = malloc(sizeof(t_list));
+	current = current->next;
+	current->data = strdup("last");
+	current->next = NULL;
+	return (head);
+}
+
 void	pheader(char *title)
 {
 	puts("\n--------------------------------");
 	puts("|                               |");
-	printf("|         %-*s|\n", -13 - ft_strlen(title), title);
+	printf("|         %-*s|\n", -13 - (int)strlen(title), title);
 	puts("|                               |");
 	puts("--------------------------------\n");
 }
@@ -135,9 +166,7 @@ int main(int ac, char **av)
 	ret = ft_read(42, buff, 50);
 	printf("bad fd : returns %d, errno = %d\n", ret, errno);
 
-
 #ifdef BONUS
-
 	pheader("ft_swap");
 	int a = 42;
 	int b = 24;
@@ -188,14 +217,11 @@ int main(int ac, char **av)
 	pheader("ft_list_sort");
 	ft_list_sort(&head, cmp);
 	print_list(head);
-
 	pheader("ft_list_remove_if");
-	char *data_cmp = "elem c";
-	void *th = ft_list_remove_if(&head, data_cmp, ri_cmp, free);
-	printf("%p\n", th);
-	printf("%p\n", data_cmp);
-	printf("%p\n", ri_cmp);
-	printf("%p\n", free);
-//	puts(th);
+	t_list *list = create_list();
+	char *data_cmp = "last";
+	void *th = ft_list_remove_if(&list, data_cmp, strcmp, free);
+	print_list(list);
+	system("leaks a.out");
 #endif
 }
